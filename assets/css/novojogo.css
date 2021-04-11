@@ -1,0 +1,53 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
+	color: #fff;
+}
+body{
+	background: linear-gradient(#452c7b, #230844);/*top to bottom e o default*/
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+#header{
+	padding:12px 15px;
+	margin-bottom: 5px;
+	background-color: #f26122;
+}
+#header i{
+	font-size: 2rem;
+	cursor: pointer;
+}
+#header img{
+	width: 30px;
+	margin-left: 600px;
+}
+.game-image{
+	display: flex;
+	flex-direction: column;
+	width: 65%;
+	margin:auto;
+	justify-content: center;
+	align-items: center;
+	border:1px solid #fff;
+	border-radius: 10px;
+}
+.game-image img{
+	width: 80%;
+	object-fit: cover;
+}
+.botaoNovoJogo{
+	display: flex;
+	justify-content: center;
+	padding:20px 0;
+	border-top: 1px solid #fff;
+	width: 100%;
+}
+.button{
+	background-color: #f26122;
+	padding:12px 50px;
+	font-weight: bold;
+	border-radius: 25px;
+	cursor: pointer;	
+}
