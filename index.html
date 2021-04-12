@@ -1,29 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Giga Unitel Clone</title>
+	<title>Home</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
-	<div class="start-page">
-		<h5>BEM-VINDO À GIGA UNITEL!</h5>
-		<div class="presentation-image">
-			<img src="assets/images/mascote.png">
-			<div class="presentation-image--text">
-				<h4>JOGA PARA GANHAR ATÉ<br>1GB DE DADOS POR DIA</h4>
-			</div>
+	<header>
+		<i class="fas fa-bars"></i>
+		<img src="assets/images/menu_logo.png" width="30">
+		<i class="fas fa-bell"></i>
+		<div class="notification-number">0</div>
+	</header>
+	<div class="welcome">
+		<div class="welcome-left">
+			<span><i>BEM-VINDO!<br>VAMOS JOGAR?</i></span>
 		</div>
-		<div class="game-panel">
-			<label>VOLTAR AO JOGO</label>
-			<div class="button" id="continue-game">CONTINUAR JOGO</div>
-			<div class="button" id="rescue-data">RESGATAR DADOS</div>
-			<label>NOVO JOGADOR</label>
-			<div class="button special-button" id="new-game">COMEÇA UM NOVO JOGO</div>
-			<div class="button" id="howTowin">COMO GANHAR</div>
+		<div class="welcome-middle">
+			<img src="assets/images/mascote_home.png">
+		</div>
+		<div class="welcome-right">
+			<span>SALDO ATUAL<br><divinventada><i>0 MB</i></divinventada></span>
 		</div>
 	</div>
-<script src="assets/js/script.js"></script>
+
+	<div class="good-luck">
+		<img src="">
+		<div class="button"><i>COMEÇA UM NOVO JOGO</i></div>
+		<div class="rescue-data">
+			<a href=""><i>RESGATAR<br>DADOS</i></a>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="first-menu-group">
+			<div class="X">
+				X
+			</div>
+			<div class="getting-ready-span">
+				<span><i>Olá! Estás pronto para ganhar?<i></span>
+			</div>
+		</div>
+
+		<div class="entra-no-gigaUnitel">
+			<h2><i>ENTRA NO GIGA UNITEL</i></h2>
+			<span><i>FAZ O TEU LOGIN...</i></span>
+			<div class="button" id="login"><i>LOGIN</i></div>
+		</div>
+		<nav>
+			<ul>
+				<li><a href=""><i>HOME</i> <i class="fas fa-angle-right"></i></a></li>
+			<li><a href=""><i>JOGAR</i><span>COMEÇAR JOGO</span><i class="fas fa-angle-right"></i></a></li>
+				<li><a href=""><i>REGRAS DO JOGO</i><i class="fas fa-angle-right"></i></a></li>
+				<li><a href=""><i>COMO JOGAR</i><i class="fas fa-angle-right"></i></a></li>
+				<li><a href=""><i>PRÉMIOS E VENCEDORES</i><i class="fas fa-angle-right"></i></a></li>
+				<li><a href=""><i>REGULAMENTO</i><i class="fas fa-angle-right"></i></a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="modal">
+		<h1>Titulo</h1>
+		<div class="content">
+			<span>Aqui teremos descrição do jogo!</span>
+		</div>
+		<div class="button" id="closeOption">FECHAR</div>
+	</div>
+	<script src="assets/js/scriptIndex.js"></script>
 </body>
 </html>
