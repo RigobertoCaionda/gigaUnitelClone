@@ -174,6 +174,7 @@ nav ul li a .fas.fa-angle-right{
 	left: 0;
 }
 .modal{
+	display: none;
 	position: absolute;
 	left: 30%;
 	top: 20%;
@@ -182,6 +183,7 @@ nav ul li a .fas.fa-angle-right{
 	border-radius: 15px;
 	padding:20px 15px;
 	background-color: #fff;
+	transition: all ease-out 0.4s;
 }
 .modal h1{
 	color: #f26122;
