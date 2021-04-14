@@ -5,6 +5,14 @@
 	font-family: 'Arial', sans-serif;
 	color: #fff;
 }
+.button{
+	background-color: #f26122;
+	padding:12px 50px;
+	font-weight: bold;
+	border-radius: 25px;
+	cursor: pointer;
+	text-align: center;	
+}
 body{
 	display: flex;
 	flex-direction: column;
@@ -141,6 +149,7 @@ body{
 	background-color: #6050a1;
 	border-top-left-radius: 7px;
 	border-bottom-left-radius: 7px;
+	cursor: pointer;
 }
 .answer{
 	flex:1;
@@ -150,6 +159,7 @@ body{
 	font-size: 0.9rem;
 	border-top-right-radius: 7px;
 	border-bottom-right-radius: 7px;
+	cursor: pointer;
 }
 .container2-third--group{
 	display: flex;
@@ -183,4 +193,80 @@ body{
 }
 #fifty-fifty{
 	font-size: 2rem;
+}
+.container3{
+	display: none;
+	width: 800px;
+	border:1px solid #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.first-group--wrapper{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.container3-question, .container3-stage{
+	margin:15px 0 15px 0;
+}
+.container3-question i, .container3-stage i{
+	font-weight: bold;
+	font-size: 0.9rem;
+}
+.container3-question--number{
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	border-radius: 50%;
+	border: 5px solid #bc4a27;
+	background-color: #f26122;
+	font-weight: bold;
+	text-align: center;
+	font-size: 2rem;
+	position: absolute;
+	left: 50%;
+	top: 0;
+}
+.container3-first--group{
+	display: flex;
+	flex-direction: column;
+}
+.lost-img{
+	margin:auto;
+	margin-bottom: 20px;
+}
+.fimDoJogo{
+	text-align: center;
+	font-weight: bold;
+}
+.container3-first--group{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #f26122;
+	padding:0 200px 15px 200px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.container3-second--group{
+	padding: 50px 0 5px 0;
+	text-align: center;
+}
+.container3-second--group small{
+	font-size: 1rem;
+}
+#close{
+	width: 60%;
+	margin:auto;
+	margin-top: 30px;
+}
+.container3-third--group{
+	text-align: center;
+	border-top: 1px solid #fff;
+	padding:30px 0;
+}
+.container3-third--group i{
+	font-weight: bold;
+	font-size: 0.7rem;
+	cursor: pointer;
 }

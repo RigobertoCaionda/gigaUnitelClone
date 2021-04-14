@@ -1,0 +1,96 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
+	color: #fff;
+}
+body{
+	background: linear-gradient(#452c7b, #230844);/*top to bottom e o default*/
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow-x: hidden;
+}
+.button{
+	margin:auto;
+	margin-bottom: 20px;
+	padding:10px 0;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 25px;
+	background-color: #77b020;
+	width: 35%;
+	cursor: pointer;
+}
+.X{
+	position: relative;
+	top: 30px;
+	left: 24px;
+	font-weight: bold;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+.container{
+	width: 800px;
+	margin:auto;
+}
+.login-text{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.login-text label i{
+	font-weight: bold;
+}
+.login-here{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	padding-bottom: 50px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	padding-bottom: 50px;
+}
+.giga i{
+	color: #f26122;
+	font-weight: bold;
+	font-size: 1.3rem;
+	padding-right: 100px;
+}
+.teacher-img img{
+	width: 135px;
+}
+.welcome-text{
+	text-align: center;
+	width: 78%;
+	font-size: 0.9rem;
+	margin:auto;
+	margin-bottom: 50px;
+	padding-top: 50px;
+}
+.welcome-text small{
+	color: #98a0b5;
+}
+.warning small{
+	text-align: center;
+	color: #98a0b5;
+	display: block;
+	margin-bottom: 5px;
+}
+.warning a{
+	text-align: center;
+	color: #98a0b5;
+	font-weight: bold;
+	display: block;
+	font-size: 0.9rem;
+}
+.welcome-text--wrapper{
+	background-color: #2f2563;
+	padding-bottom: 5px;
+}
+.overall{
+	border:1px solid #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
