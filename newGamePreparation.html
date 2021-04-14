@@ -40,20 +40,24 @@
 		<div class="premio"><i>PRÉMIO - 1 MB</i></div>
 	</div>
 	<div class="container2-second--group">
-		<div class="container2-second--group---question"><i>ONDE SE SITUA A ILHA DE KOMODO?</i></div>
+		<div class="container2-second--group---question"><i id="question"></i></div>
 		<div class="optionsGroup">
 			<label>ESCOLHA A RESPOSTA CORRETA</label>
-			<div class="option">
-				<div class="letter">A</div><div class="answer">CHINA</div>
+			<div class="option" data-key="A">
+				<div class="letter">A</div>
+				<div class="answer" id="answerA"></div>
 			</div>
-			<div class="option">
-				<div class="letter">B</div><div class="answer">COREIA DO SUL</div>
+			<div class="option" data-key="B">
+				<div class="letter">B</div>
+				<div class="answer" id="answerB"></div>
 			</div>
-			<div class="option">
-				<div class="letter">C</div><div class="answer">INDONÉSIA</div>
+			<div class="option" data-key="C">
+				<div class="letter">C</div>
+				<div class="answer" id="answerC"></div>
 			</div>
-			<div class="option">
-				<div class="letter">D</div><div class="answer">JAPÃO</div>
+			<div class="option" data-key="D">
+				<div class="letter">D</div>
+				<div class="answer" id="answerD"></div>
 			</div>
 			<label>PODES ATIVAR UMA AJUDA</label>
 		</div>
@@ -99,6 +103,7 @@
 		</div>
 	</div>
 </div>
+<script src="assets/js/perguntas.js"></script>
 <script src="assets/js/scriptNewGamePreparation.js"></script>
 </body>
 </html>

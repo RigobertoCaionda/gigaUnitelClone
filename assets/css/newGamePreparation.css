@@ -270,3 +270,21 @@ body{
 	font-size: 0.7rem;
 	cursor: pointer;
 }
+.pintaAnswer{
+	background-color: #f26122;
+}
+.pintaLetter{
+	background-color: #bc4a27;
+}
+.errouAnswer{
+	background-color: #9f1831;
+}
+.errouLetter{
+	background-color: #b21633;
+}
+.certoAnswer{
+	background-color: #77b020;
+}
+.certoLetter{
+	background-color: #608b1f;
+}
