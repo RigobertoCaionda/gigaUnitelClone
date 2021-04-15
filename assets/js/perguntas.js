@@ -10,7 +10,7 @@ let pergunta = [
 		respostaCerta: 'Branco'
 	},
 	{
-		pergunta: 'Qual e a meu pais favorito?',
+		pergunta: 'Qual e o meu pais favorito?',
 		respostas:['Russia','Angola','Irlanda','Alemanha'],
 		respostaCerta: 'Alemanha'
 	}

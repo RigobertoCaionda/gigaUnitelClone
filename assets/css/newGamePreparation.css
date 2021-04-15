@@ -288,3 +288,144 @@ body{
 .certoLetter{
 	background-color: #608b1f;
 }
+.pointerEvents{
+	pointer-events: none;
+}
+.container4{
+	width: 800px;
+	display: none;
+	border:1px solid #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	padding-bottom: 30px;
+}
+.top{
+	display: flex;
+	justify-content: space-between;
+}
+.top-img{
+	margin:auto;
+}
+.top-question--number{
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	border-radius: 50%;
+	border: 5px solid #bc4a27;
+	background-color: #f26122;
+	font-weight: bold;
+	text-align: center;
+	font-size: 2rem;
+	position: absolute;
+	left: 50%;
+	top: 0;
+}
+.first-group--container{
+	display: flex;
+	flex-direction: column;
+	background-color: #529a40;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	padding-bottom: 20px;
+}
+.top-question, .top-fase{
+	padding:20px 100px  20px 170px;
+}
+.top-question i, .top-fase i{
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+.resposta-certa{
+	text-align: center;
+	margin-top: 30px;
+}
+.resposta-certa i{
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+.second-group--container{
+	padding:20px 0 5px 0;
+}
+.acumulou-text{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.acumulou-text i{
+	color: #f26122;
+	font-weight: bold;
+}
+.acumulou{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.ponto{
+	background-color: #f1f2f2;
+	margin-right: 5px;
+	width: 70px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 15px;
+}
+.ponto i{
+	font-weight: bold;
+	color: #d1d3d4;
+}
+.active{
+	width: 80px;
+	height: 60px;
+	color: #fff;
+	line-height: 60px;
+	border-radius: 15px;
+	background-color: #ee7402;
+}
+.third-group-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #fff;
+	padding-top: 20px;
+}
+.suspend-game, .stop-game{
+		padding:0 150px;
+		cursor: pointer;
+		text-align: center;
+}
+.suspend-game i, .stop-game i{
+	font-size: 0.7rem;
+	font-weight: bold;
+}
+.keep-playing{
+	width: 60%;
+	margin:auto;
+}
+.container5{
+	width: 800px;
+	display: none;
+	flex-direction: column;
+	border:1px solid #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.container5-img{
+	width: 100%;
+}
+.container5-img img{
+	width: 99%;
+}
+.container5-bottom{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid #fff;
+	padding:20px 0;
+}
+.parar, .continuar{
+	font-size: 0.9rem;
+}
+.parar{
+	background-color: #939393;
+	margin-right: 20px;
+}
