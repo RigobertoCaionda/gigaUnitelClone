@@ -21,12 +21,20 @@ let time = document.querySelector('.time');
 let continuarJogo = document.querySelector('.keep-playing');
 let lostImage = document.querySelector('.lost-img img');
 let rescueData = document.querySelector('#rescue-data');
+let questionNumber = document.querySelector('.top-question--number');
+let stage = document.querySelector('.stage i');
+let numPergunta = document.querySelector('.question-number i');
+let numPerg = document.querySelector('.container2-question i');
+let premioI = document.querySelector('.premio i');
+let mbGanhos = document.querySelector('.second-group--words i');
+let faseDiv = document.querySelector('.top-fase i');
 let timer2;
 //Controles essenciais
 let megasGanhos = 1;
 let premio = [1,3,5,10,20,30,50,100,200,300,400,500,1000];//Os mb que ele pode ganhar
 let numeroDaPergunta = 1;
 let fase = 1;
+let index = 0;
 //controles essencias fechamento
 let mainCount = 30;
 let imageArray = ['assets/images/wrong.gif','assets/images/dog.gif'];
@@ -52,6 +60,63 @@ let timer = setInterval(()=>{
 	}
 },1000);
 let randomQuestion;
+function trocarFase(){
+	if(index < 12){
+		index++;
+	}
+	let ponto = document.querySelectorAll('.ponto');
+	if(numeroDaPergunta === 5){
+		fase++;
+		for(let i = 0; i < 4; i++){
+			ponto[i].style.display = 'none';
+		}
+		for(let i = 4; i < 8; i++){
+			ponto[i].style.display = 'block';
+		}
+	}else if(numeroDaPergunta === 9){
+		fase++;
+		for(let i = 4; i < 8; i++){
+			ponto[i].style.display = 'none';
+		}
+		for(let i = 8; i < 12; i++){
+			ponto[i].style.display = 'block';
+		}
+	}else if(numeroDaPergunta === 13){
+		if(fase < 4){
+			fase++;
+		}
+		ponto[ponto.length-1].style.display = 'block';
+	}
+	stage.innerHTML = `FASE ${fase}`;
+	numPergunta.innerHTML = numeroDaPergunta;
+	numPerg.innerHTML = `PERGUNTA - ${numeroDaPergunta}`;
+	if(index === 12 && premio[index] === 1000){
+		premioI.innerHTML = `PRÉMIO - 1 GB`;
+		mbGanhos.innerHTML = `ESTÁ FIXE! 1 GB<br><br>TUDO PRONTO?`;
+	}else{
+		premioI.innerHTML = `PRÉMIO - ${premio[index]} MB`;
+		mbGanhos.innerHTML = `ESTÁ FIXE! ${premio[index]} MB<br><br>TUDO PRONTO?`;
+	}
+	faseDiv.innerHTML = `FASE ${fase}`;
+}
+
+function updateWindow(){
+	if(numeroDaPergunta < 13){
+		numeroDaPergunta++;
+	}
+	questionNumber.innerHTML = numeroDaPergunta;
+	let pontoAtivo = document.querySelector('.ponto.active');
+			pontoAtivo.classList.add('jaGanhou');
+			if(numeroDaPergunta < 14){
+				trocarFase();
+			}
+			if(pontoAtivo.nextElementSibling !== null){
+				pontoAtivo.classList.remove('active');
+				pontoAtivo.nextElementSibling.classList.add('active');
+			}else{
+				alert('Ganhou 1GB');
+			}
+}
 function sortearPergunta(){
 	randomQuestion = Math.round(Math.random() * (pergunta.length - 1));
 	question.innerHTML = pergunta[randomQuestion].pergunta.toUpperCase();
@@ -86,6 +151,9 @@ function prepareGame(){
 	});
 	count = 3;
 	mainCount = 30;
+	if(fase >= 2){
+		mainCount = 15;
+	}
 	countNumber.innerHTML = count;
 	container5.style.display = 'none';
 	container1.style.display = 'block';
@@ -126,6 +194,7 @@ option.forEach((item)=>{
 					setTimeout(()=>{//Espera para que nao desapareca a tela sem que mostre a certa e errada
 						clearInterval(timer2);
 						container2.style.display = 'none';
+						updateWindow();
 						container4.style.display = 'block';
 					},1000);
 				}else{
