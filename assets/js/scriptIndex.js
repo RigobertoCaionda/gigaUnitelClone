@@ -1,6 +1,16 @@
 if(localStorage.getItem('customer') === null){
 	window.location = 'startingPage.html';
 }
+if(localStorage.getItem('login') !== null){
+	let firstGroup = document.querySelector('.first-menu-group');
+	let entraNoGiga = document.querySelector('.entra-no-gigaUnitel');
+	let logado = document.querySelector('.logado');
+	let profile = document.querySelector('#profile');
+	firstGroup.style.display = 'none';
+	entraNoGiga.style.display = 'none';
+	profile.style.display = 'block';
+	logado.style.display = 'block';
+}
 let links = document.querySelectorAll('nav ul li a');
 links.forEach((item)=>{
 	item.addEventListener('click',(e)=>{
@@ -24,6 +34,7 @@ let home = document.querySelector('#home');
 let play = document.querySelector('#play');
 let newGame = document.querySelector('#startNewGame');
 let title = document.querySelector('.modal h1');
+let login = document.querySelector('#login');
 function openMenu(){
 	if(menu.classList.contains('show')){
 		menu.classList.remove('show');
@@ -86,4 +97,7 @@ play.addEventListener('click',()=>{
 });
 newGame.addEventListener('click',()=>{
 	window.location = 'newGame.html';
+});
+login.addEventListener('click',()=>{
+	window.location = 'login.html';
 });

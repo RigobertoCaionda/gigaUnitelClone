@@ -152,7 +152,7 @@ nav ul{
 	flex-direction: column;
 }
 nav ul li{
-	padding: 15px;
+	padding: 10px 15px;
 	border-bottom: 1px solid #fff;
 }
 nav ul li a{
@@ -207,4 +207,62 @@ nav ul li a .fas.fa-angle-right{
 	margin:auto;
 	text-align: center;
 	font-size: 1.3rem;
+}
+.logado{
+	display: none;
+}
+.fotoLogin{
+	width: 135px;
+	height: 135px;
+	border-radius: 50%;
+	border:5px solid #fff;
+	margin:0 auto 15px auto;
+}
+.fotoLogin img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.personal-data{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f26122;
+	margin:0 7px 20px 7px;
+	border-radius: 5px;
+	padding:5px 15px;
+}
+.acumulado, .saldo, .pontos{
+	display: flex;
+	flex-direction: column;
+}
+.acumulado label, .pontos label, .saldo label{
+		font-size: 0.7rem;
+}
+.acumulado i, .pontos i, .saldo i{
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+#resgate{
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+#profile{
+	display: none;
+}
+#perfil{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+#perfil span{
+	margin-bottom: 10px;
+}
+.wrapper{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }

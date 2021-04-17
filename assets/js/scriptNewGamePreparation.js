@@ -8,6 +8,9 @@ let container2 = document.querySelector('.container2');
 let container3 = document.querySelector('.container3');
 let container4 = document.querySelector('.container4');
 let container5 = document.querySelector('.container5');
+let container6 = document.querySelector('.container6');
+let X = document.querySelector('.X');
+let logar = document.querySelector('#fazerLogin');
 let question = document.querySelector('#question');
 let close = document.querySelector('#close');
 let answerA = document.querySelector('#answerA');
@@ -221,11 +224,30 @@ option.forEach((item)=>{
 close.addEventListener('click',()=>{
 	window.location = 'newGame.html';
 });
+logar.addEventListener('click',()=>{
+	let number = prompt("Digite seu número de telefone");
+	if(number !== null && number !== ''){
+		localStorage.setItem('login', number);
+		container6.style.display = 'none';
+		X.style.display = 'none';
+		prepareGame();
+		sortearPergunta();
+		container5.style.display = 'none';
+	}else{
+		alert('Número inválido, digite um número UNITEL!');
+		number = prompt("Digite seu número de telefone");
+	}
+});
 continuarJogo.addEventListener('click',()=>{
 	container4.style.display = 'none';
-	prepareGame();
-	sortearPergunta();
-	container5.style.display = 'none';
+	if(numeroDaPergunta >= 5 && localStorage.getItem('login') === null){
+		container6.style.display = 'block';
+		X.style.display = 'block';
+	}else{
+		prepareGame();
+		sortearPergunta();
+		container5.style.display = 'none';
+	}
 });
 rescueData.addEventListener('click',()=>{
 	window.location = 'login.html';
