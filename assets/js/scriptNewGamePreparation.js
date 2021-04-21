@@ -21,6 +21,7 @@ let answerD = document.querySelector('#answerD');
 let option = document.querySelectorAll('.option');
 let resp = document.querySelectorAll('.answer');
 let letra = document.querySelectorAll('.letter');
+let changeQuestionHelp = document.querySelector('#change-question');
 let time = document.querySelector('.time');
 let continuarJogo = document.querySelector('.keep-playing');
 let lostImage = document.querySelector('.lost-img img');
@@ -38,14 +39,15 @@ let suspendGame = document.querySelector('.suspend-game');
 let timer2;
 let ponto = document.querySelectorAll('.ponto');
 //Controles essenciais
-let megasGanhos;
+/*let megasGanhos;
 if(localStorage.getItem('megasGanhos') !== null){
 	megasGanhos = localStorage.getItem('megasGanhos');	
 }else{
 	megasGanhos = 1;
-}
+}*/
 
 let premio = [1,3,5,10,20,30,50,100,200,300,400,500,1024];
+let numeroAjudas = 0;
 if(localStorage.getItem('premio') !== null){
 	premio[localStorage.getItem('index')] = localStorage.getItem('premio');
 }
@@ -150,7 +152,8 @@ function updateWindow(){
 		numeroDaPergunta++;
 	}
 	questionNumber.innerHTML = numeroDaPergunta;
-	let pontoAtivo	= document.querySelector('.ponto.active');
+	let pontoAtivo;
+	pontoAtivo	= document.querySelector('.ponto.active');
 			if(numeroDaPergunta < 14){
 				trocarFase();
 			}
@@ -166,6 +169,9 @@ function saveData(){
 	localStorage.setItem('premio',premio[index]);
 	localStorage.setItem('numeroDaPergunta',numeroDaPergunta);
 	localStorage.setItem('fase',fase);
+	if(changeQuestionHelp.getAttribute('trocaDePerguntas') == 'true'){
+		localStorage.setItem('question-change-help',changeQuestionHelp.getAttribute('trocaDePerguntas'));
+	}
 }
 
 function ganhouJogo(){
@@ -173,6 +179,7 @@ function ganhouJogo(){
 	localStorage.removeItem('premio');
 	localStorage.removeItem('numeroDaPergunta');
 	localStorage.removeItem('fase');
+	localStorage.removeItem('question-change-help');
 	if(localStorage.getItem('saldo') !== null){
 		let temporaryVar = 0;
 		temporaryVar = ((premio[index]) + (parseInt(localStorage.getItem('saldo'))));
@@ -187,6 +194,7 @@ function perdeu(){
 	localStorage.removeItem('premio');
 	localStorage.removeItem('numeroDaPergunta');
 	localStorage.removeItem('fase');
+	localStorage.removeItem('question-change-help');
 	if(localStorage.getItem('saldo') !== null){
 		let temporaryVar = 0;
 		if(numeroDaPergunta >= 5 && numeroDaPergunta <= 8){
@@ -355,3 +363,14 @@ suspendGame.addEventListener('click',()=>{
 rescueData.addEventListener('click',()=>{
 	window.location = 'login.html';
 });
+if(localStorage.getItem('question-change-help') !== null){
+	changeQuestionHelp.classList.add('pointerEvents');
+}
+changeQuestionHelp.addEventListener('click',()=>{
+	mainCount = 30;
+	changeQuestionHelp.setAttribute('trocaDePerguntas', 'true');
+	sortearPergunta();
+	numeroAjudas++;
+	changeQuestionHelp.classList.add('pointerEvents');
+	//So vai faltar escurecer a div para dar a entender que nao rola mais ai
+});;

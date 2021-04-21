@@ -109,6 +109,19 @@ newGame.addEventListener('click',()=>{
 login.addEventListener('click',()=>{
 	window.location = 'login.html';
 });
-saldoI.innerHTML = `${localStorage.getItem('saldo')} MB`;
-acumuladoI.innerHTML = `${localStorage.getItem('saldo')} MB`;
-pontosI.innerHTML = localStorage.getItem('saldo');
+if(localStorage.getItem('saldo') !== null){
+	saldoI.innerHTML = `${localStorage.getItem('saldo')} MB`;
+}else{
+	saldoI.innerHTML = `0 MB`;
+}
+if(localStorage.getItem('saldo') !== null){
+	acumuladoI.innerHTML = `${localStorage.getItem('saldo')} MB`;
+}else{
+	acumuladoI.innerHTML = `0 MB`;
+}
+
+if(localStorage.getItem('saldo') !== null){
+	pontosI.innerHTML = localStorage.getItem('saldo');
+}else{
+	pontosI.innerHTML = 0;
+}
