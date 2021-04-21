@@ -10,6 +10,11 @@ if(localStorage.getItem('login') !== null){
 	entraNoGiga.style.display = 'none';
 	profile.style.display = 'block';
 	logado.style.display = 'block';
+	if(localStorage.getItem('saldo') !== null){
+		let saldo = document.querySelector('divinventada i');
+		let balance = localStorage.getItem('saldo');
+		saldo.innerHTML = `${balance} MB`;
+	}
 }
 let links = document.querySelectorAll('nav ul li a');
 links.forEach((item)=>{
@@ -35,6 +40,9 @@ let play = document.querySelector('#play');
 let newGame = document.querySelector('#startNewGame');
 let title = document.querySelector('.modal h1');
 let login = document.querySelector('#login');
+let saldoI = document.querySelector('.saldo i');
+let acumuladoI = document.querySelector('.acumulado i');
+let pontosI = document.querySelector('.pontos i');
 function openMenu(){
 	if(menu.classList.contains('show')){
 		menu.classList.remove('show');
@@ -101,3 +109,6 @@ newGame.addEventListener('click',()=>{
 login.addEventListener('click',()=>{
 	window.location = 'login.html';
 });
+saldoI.innerHTML = `${localStorage.getItem('saldo')} MB`;
+acumuladoI.innerHTML = `${localStorage.getItem('saldo')} MB`;
+pontosI.innerHTML = localStorage.getItem('saldo');

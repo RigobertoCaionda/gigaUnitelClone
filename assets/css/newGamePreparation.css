@@ -519,3 +519,16 @@ body{
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
+.container7{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 300px;
+}
+.container7 a{
+	text-decoration: none;
+}
+.container7 h1{
+	margin-bottom: 15px;
+}
