@@ -22,6 +22,8 @@ let option = document.querySelectorAll('.option');
 let resp = document.querySelectorAll('.answer');
 let letra = document.querySelectorAll('.letter');
 let changeQuestionHelp = document.querySelector('#change-question');
+let fifityFifity = document.querySelector('#fifty-fifty');
+let choose2 = document.querySelector('#choose2');
 let time = document.querySelector('.time');
 let continuarJogo = document.querySelector('.keep-playing');
 let lostImage = document.querySelector('.lost-img img');
@@ -48,6 +50,9 @@ if(localStorage.getItem('megasGanhos') !== null){
 
 let premio = [1,3,5,10,20,30,50,100,200,300,400,500,1024];
 let numeroAjudas = 0;
+if(localStorage.getItem('ajudas') !== null){
+	numeroAjudas = parseInt(localStorage.getItem('ajudas'));
+}
 if(localStorage.getItem('premio') !== null){
 	premio[localStorage.getItem('index')] = localStorage.getItem('premio');
 }
@@ -169,8 +174,15 @@ function saveData(){
 	localStorage.setItem('premio',premio[index]);
 	localStorage.setItem('numeroDaPergunta',numeroDaPergunta);
 	localStorage.setItem('fase',fase);
+	localStorage.setItem('ajudas', numeroAjudas);
 	if(changeQuestionHelp.getAttribute('trocaDePerguntas') == 'true'){
 		localStorage.setItem('question-change-help',changeQuestionHelp.getAttribute('trocaDePerguntas'));
+	}
+	if(fifityFifity.getAttribute('fifty') == 'true'){
+		localStorage.setItem('fifty-fifty-help', fifityFifity.getAttribute('fifty'));
+	}
+	if(choose2.getAttribute('choose2') == 'true'){
+		localStorage.setItem('choose2-help', choose2.getAttribute('choose2'));
 	}
 }
 
@@ -180,6 +192,9 @@ function ganhouJogo(){
 	localStorage.removeItem('numeroDaPergunta');
 	localStorage.removeItem('fase');
 	localStorage.removeItem('question-change-help');
+	localStorage.removeItem('fifty-fifty-help');
+	localStorage.removeItem('choose2-help');
+	localStorage.removeItem('ajudas');
 	if(localStorage.getItem('saldo') !== null){
 		let temporaryVar = 0;
 		temporaryVar = ((premio[index]) + (parseInt(localStorage.getItem('saldo'))));
@@ -195,6 +210,9 @@ function perdeu(){
 	localStorage.removeItem('numeroDaPergunta');
 	localStorage.removeItem('fase');
 	localStorage.removeItem('question-change-help');
+	localStorage.removeItem('fifty-fifty-help');
+	localStorage.removeItem('choose2-help');
+	localStorage.removeItem('ajudas');
 	if(localStorage.getItem('saldo') !== null){
 		let temporaryVar = 0;
 		if(numeroDaPergunta >= 5 && numeroDaPergunta <= 8){
@@ -280,6 +298,10 @@ function prepareGame(){
 	}
 },1000);
 }
+let clicouNoChoose2 = false;
+let contador = 0;
+let vector = [];//retorna uma especie de aviso pq algumas vezes na posicao 1 o vector ser undefined
+
 option.forEach((item)=>{
 	item.addEventListener('click',(e)=>{
 		option.forEach((item)=>{
@@ -287,13 +309,72 @@ option.forEach((item)=>{
 		});
 		e.target.closest('.option').querySelector('.answer').classList.add('pintaAnswer');
 		e.target.closest('.option').querySelector('.letter').classList.add('pintaLetter');
+		vector.push(e.target.closest('.option').querySelector('.answer').innerHTML);
+		
+		if(clicouNoChoose2 == true){
+			contador++;
+			option.forEach((item)=>{
+				item.classList.remove('pointerEvents');
+				
+			});
+			if(contador === 2){
+				option.forEach((item)=>{
+					item.classList.add('pointerEvents');
+				});
+			}
+			setTimeout(()=>{
+				if(pergunta[randomQuestion].respostaCerta.toUpperCase() == e.target.closest('.option').querySelector('.answer').innerHTML.toUpperCase()){
+					e.target.closest('.option').querySelector('.answer').classList.remove('pintaAnswer');
+					e.target.closest('.option').querySelector('.answer').classList.add('certoAnswer');
+					e.target.closest('.option').querySelector('.letter').classList.remove('pintaLetter');
+					e.target.closest('.option').querySelector('.letter').classList.add('certoLetter');
+					setTimeout(()=>{
+						clearInterval(timer2);
+						container2.style.display = 'none';
+						container4.style.display = 'block';
+						if(numeroDaPergunta >= 13){
+							ganhouJogo();
+							container4.style.display = 'none';
+							container7.style.display = 'flex';
+						}else{
+							updateWindow();
+						}
+					},1000);
+				}else if(pergunta[randomQuestion].respostaCerta.toUpperCase() == vector[0].toUpperCase() 
+					|| pergunta[randomQuestion].respostaCerta.toUpperCase() == vector[1].toUpperCase()){
+					e.target.closest('.option').querySelector('.answer').classList.remove('pintaAnswer');
+					e.target.closest('.option').querySelector('.letter').classList.remove('pintaLetter');
+					clicouNoChoose2 = false;
+				}else{
+					e.target.closest('.option').querySelector('.answer').classList.remove('pintaAnswer');
+					e.target.closest('.option').querySelector('.answer').classList.add('errouAnswer');
+					e.target.closest('.option').querySelector('.letter').classList.remove('pintaLetter');
+					e.target.closest('.option').querySelector('.letter').classList.add('errouLetter');
+					for(let i = 0; i < resp.length; i++){
+						if(pergunta[randomQuestion].respostaCerta.toUpperCase() == resp[i].innerHTML.toUpperCase()){
+							resp[i].classList.add('certoAnswer');
+							letra[i].classList.add('certoLetter');
+						}
+					}
+					setTimeout(()=>{
+						clearInterval(timer2);
+						perdeu();
+						container2.style.display = 'none';
+						lostImage.src = selectedImage;
+						perdeuNaPergunta.innerHTML = numeroDaPergunta;
+						perdeuNaFase.innerHTML = `FASE ${fase}`;
+						container3.style.display = 'block';
+					},1000);
+				}
+		},2000);
+		}else{
 		setTimeout(()=>{
 				if(pergunta[randomQuestion].respostaCerta.toUpperCase() == e.target.closest('.option').querySelector('.answer').innerHTML.toUpperCase()){
 					e.target.closest('.option').querySelector('.answer').classList.remove('pintaAnswer');
 					e.target.closest('.option').querySelector('.answer').classList.add('certoAnswer');
 					e.target.closest('.option').querySelector('.letter').classList.remove('pintaLetter');
 					e.target.closest('.option').querySelector('.letter').classList.add('certoLetter');
-					setTimeout(()=>{//Espera para que nao desapareca a tela sem que mostre a certa e errada
+					setTimeout(()=>{
 						clearInterval(timer2);
 						container2.style.display = 'none';
 						container4.style.display = 'block';
@@ -316,7 +397,7 @@ option.forEach((item)=>{
 							letra[i].classList.add('certoLetter');
 						}
 					}
-					setTimeout(()=>{//Espera para que nao desapareca a tela sem que mostre a certa e errada
+					setTimeout(()=>{
 						clearInterval(timer2);
 						perdeu();
 						container2.style.display = 'none';
@@ -327,6 +408,7 @@ option.forEach((item)=>{
 					},1000);
 				}
 		},2000);
+	}
 	});
 });
 close.addEventListener('click',()=>{
@@ -348,6 +430,9 @@ logar.addEventListener('click',()=>{
 });
 continuarJogo.addEventListener('click',()=>{
 	container4.style.display = 'none';
+	for(let i = 0; i < option.length; i++){
+		option[i].style.display = 'flex';
+	}
 	if(numeroDaPergunta >= 5 && localStorage.getItem('login') === null){
 		container6.style.display = 'block';
 		X.style.display = 'block';
@@ -359,12 +444,22 @@ continuarJogo.addEventListener('click',()=>{
 });
 suspendGame.addEventListener('click',()=>{
 	saveData();
+	window.location = 'index.html';
 });
 rescueData.addEventListener('click',()=>{
 	window.location = 'login.html';
 });
 if(localStorage.getItem('question-change-help') !== null){
 	changeQuestionHelp.classList.add('pointerEvents');
+	changeQuestionHelp.classList.add('corCinza');
+}
+if(localStorage.getItem('fifty-fifty-help') !== null){
+	fifityFifity.classList.add('pointerEvents');
+	fifityFifity.classList.add('corCinza');
+}
+if(localStorage.getItem('choose2-help') !== null){
+	choose2.classList.add('pointerEvents');
+	choose2.classList.add('corCinza');
 }
 changeQuestionHelp.addEventListener('click',()=>{
 	mainCount = 30;
@@ -372,5 +467,56 @@ changeQuestionHelp.addEventListener('click',()=>{
 	sortearPergunta();
 	numeroAjudas++;
 	changeQuestionHelp.classList.add('pointerEvents');
-	//So vai faltar escurecer a div para dar a entender que nao rola mais ai
+	changeQuestionHelp.classList.add('corCinza');
+	for(let i = 0; i < option.length; i++){
+		option[i].style.display = 'flex';
+	}
+	clicouNoChoose2 = false;
+	verificaNumeroAjudas();
 });;
+fifityFifity.addEventListener('click',()=>{
+	fifityFifity.setAttribute('fifty', 'true');
+	numeroAjudas++;
+	fifityFifity.classList.add('pointerEvents');
+	let ajudador;
+	fifityFifity.classList.add('corCinza');
+	for(let i = 0; i < option.length; i++){
+		option[i].style.display = 'none';
+		if(option[i].querySelector('.answer').innerHTML.toUpperCase() == pergunta[randomQuestion].respostaCerta.toUpperCase()){
+			option[i].style.display = 'flex';
+			ajudador = i;
+		}
+	}
+	let aleatorio = Math.round(Math.random() * (option.length - 1));
+	if(aleatorio !== ajudador){
+		option[aleatorio].style.display = 'flex';
+	}else{
+		while(aleatorio === ajudador){
+		aleatorio = Math.round(Math.random() * (option.length - 1));
+		if(aleatorio !== ajudador){
+			option[aleatorio].style.display = 'flex';
+		}
+	}
+	}
+	verificaNumeroAjudas();
+});
+choose2.addEventListener('click',()=>{
+	clicouNoChoose2 = true;
+	choose2.setAttribute('choose2', 'true');
+	numeroAjudas++;
+	choose2.classList.add('pointerEvents');
+	choose2.classList.add('corCinza');
+	verificaNumeroAjudas();
+});
+
+function verificaNumeroAjudas(){
+	if(numeroAjudas == 2){
+		fifityFifity.classList.add('pointerEvents');
+		changeQuestionHelp.classList.add('pointerEvents');
+		choose2.classList.add('pointerEvents');
+		fifityFifity.classList.add('corCinza');
+		changeQuestionHelp.classList.add('corCinza');
+		choose2.classList.add('corCinza');
+	}
+}
+verificaNumeroAjudas();
