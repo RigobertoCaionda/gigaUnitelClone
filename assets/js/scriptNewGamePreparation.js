@@ -429,7 +429,7 @@ close.addEventListener('click',()=>{
 logar.addEventListener('click',()=>{
 	let number = prompt("Digite seu número de telefone");
 	let rule = /^(94)|^(92)|^(93)/g
-	if(number !== null && number.match(rule)){
+	if(number !== null && number.match(rule) && number.length == 9){
 		localStorage.setItem('login', number);
 		container6.style.display = 'none';
 		X.style.display = 'none';
@@ -437,11 +437,11 @@ logar.addEventListener('click',()=>{
 		sortearPergunta();
 		container5.style.display = 'none';
 	}else{
-		while(!(number !== null && number.match(rule))){
+		while(!(number !== null && number.match(rule) && number.length == 9)){
 			alert('Número inválido, digite um número UNITEL! Ex:923222222');
 			number = prompt("Digite seu número de telefone");
 		}
-		if(number !== null && number.match(rule)){
+		if(number !== null && number.match(rule) && number.length == 9){
 			localStorage.setItem('login', number);
 			container6.style.display = 'none';
 			X.style.display = 'none';
