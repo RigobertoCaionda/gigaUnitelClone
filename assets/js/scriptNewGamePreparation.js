@@ -21,6 +21,7 @@ let answerD = document.querySelector('#answerD');
 let option = document.querySelectorAll('.option');
 let resp = document.querySelectorAll('.answer');
 let letra = document.querySelectorAll('.letter');
+let pararJogo = document.querySelector('.stop-game');
 let changeQuestionHelp = document.querySelector('#change-question');
 let fifityFifity = document.querySelector('#fifty-fifty');
 let choose2 = document.querySelector('#choose2');
@@ -41,13 +42,6 @@ let suspendGame = document.querySelector('.suspend-game');
 let timer2;
 let ponto = document.querySelectorAll('.ponto');
 //Controles essenciais
-/*let megasGanhos;
-if(localStorage.getItem('megasGanhos') !== null){
-	megasGanhos = localStorage.getItem('megasGanhos');	
-}else{
-	megasGanhos = 1;
-}*/
-
 let premio = [1,3,5,10,20,30,50,100,200,300,400,500,1024];
 let numeroAjudas = 0;
 if(localStorage.getItem('ajudas') !== null){
@@ -201,6 +195,24 @@ function ganhouJogo(){
 		localStorage.setItem('saldo', temporaryVar);
 	}else{
 		localStorage.setItem('saldo', premio[index]);
+	}
+}
+
+function parouJogo(){
+	localStorage.removeItem('index');
+	localStorage.removeItem('premio');
+	localStorage.removeItem('numeroDaPergunta');
+	localStorage.removeItem('fase');
+	localStorage.removeItem('question-change-help');
+	localStorage.removeItem('fifty-fifty-help');
+	localStorage.removeItem('choose2-help');
+	localStorage.removeItem('ajudas');
+	if(localStorage.getItem('saldo') !== null){
+		let temporaryVar = 0;
+		temporaryVar = ((premio[index - 1]) + (parseInt(localStorage.getItem('saldo'))));
+		localStorage.setItem('saldo', temporaryVar);
+	}else{
+		localStorage.setItem('saldo', premio[index - 1]);
 	}
 }
 
@@ -416,7 +428,8 @@ close.addEventListener('click',()=>{
 });
 logar.addEventListener('click',()=>{
 	let number = prompt("Digite seu número de telefone");
-	if(number !== null && number !== ''){
+	let rule = /^(94)|^(92)|^(93)/g
+	if(number !== null && number.match(rule)){
 		localStorage.setItem('login', number);
 		container6.style.display = 'none';
 		X.style.display = 'none';
@@ -424,8 +437,18 @@ logar.addEventListener('click',()=>{
 		sortearPergunta();
 		container5.style.display = 'none';
 	}else{
-		alert('Número inválido, digite um número UNITEL!');
-		number = prompt("Digite seu número de telefone");
+		while(!(number !== null && number.match(rule))){
+			alert('Número inválido, digite um número UNITEL! Ex:923222222');
+			number = prompt("Digite seu número de telefone");
+		}
+		if(number !== null && number.match(rule)){
+			localStorage.setItem('login', number);
+			container6.style.display = 'none';
+			X.style.display = 'none';
+			prepareGame();
+			sortearPergunta();
+			container5.style.display = 'none';
+		}
 	}
 });
 continuarJogo.addEventListener('click',()=>{
@@ -508,7 +531,11 @@ choose2.addEventListener('click',()=>{
 	choose2.classList.add('corCinza');
 	verificaNumeroAjudas();
 });
-
+pararJogo.addEventListener('click',()=>{
+	
+	parouJogo();
+	window.location = 'index.html';
+});
 function verificaNumeroAjudas(){
 	if(numeroAjudas == 2){
 		fifityFifity.classList.add('pointerEvents');

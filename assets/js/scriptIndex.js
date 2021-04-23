@@ -1,3 +1,4 @@
+let profile = document.querySelector('#profile');
 if(localStorage.getItem('customer') === null){
 	window.location = 'startingPage.html';
 }
@@ -5,7 +6,6 @@ if(localStorage.getItem('login') !== null){
 	let firstGroup = document.querySelector('.first-menu-group');
 	let entraNoGiga = document.querySelector('.entra-no-gigaUnitel');
 	let logado = document.querySelector('.logado');
-	let profile = document.querySelector('#profile');
 	firstGroup.style.display = 'none';
 	entraNoGiga.style.display = 'none';
 	profile.style.display = 'block';
@@ -32,6 +32,7 @@ let closeMod = document.querySelector('#closeOption');
 let menuIcon = document.querySelector('.fas.fa-bars');
 let modal = document.querySelector('.modal');
 let regulamento = document.querySelector('#regulamento');
+let contentSpan = document.querySelector('.content span');
 let premio = document.querySelector('#premio');
 let comoJogar = document.querySelector('#comojogar');
 let regras = document.querySelector('#regras');
@@ -40,8 +41,10 @@ let play = document.querySelector('#play');
 let newGame = document.querySelector('#startNewGame');
 let title = document.querySelector('.modal h1');
 let login = document.querySelector('#login');
+let logout = document.querySelector('#logout');
 let saldoI = document.querySelector('.saldo i');
 let acumuladoI = document.querySelector('.acumulado i');
+let contentH4 = document.querySelector('.content h4');
 let pontosI = document.querySelector('.pontos i');
 function openMenu(){
 	if(menu.classList.contains('show')){
@@ -59,10 +62,32 @@ function closeModal(){
 		modal.style.display = 'none';
 	},500);
 }
+function sairDaConta(){
+	localStorage.removeItem('index');
+	localStorage.removeItem('premio');
+	localStorage.removeItem('numeroDaPergunta');
+	localStorage.removeItem('fase');
+	localStorage.removeItem('question-change-help');
+	localStorage.removeItem('fifty-fifty-help');
+	localStorage.removeItem('choose2-help');
+	localStorage.removeItem('ajudas');
+	localStorage.removeItem('saldo');
+	localStorage.removeItem('login');
+	localStorage.removeItem('customer');
+}
+function terminarSessao(){
+	if(confirm("Deseja realmente terminar sessão? Você perderá seu lado se terminar sessão.")){
+		sairDaConta();
+		window.location = 'index.html';
+	}
+}
 menuIcon.addEventListener('click', openMenu);
 closeMenu.addEventListener('click',close);
 closeMod.addEventListener('click', closeModal);
 regulamento.addEventListener('click',()=>{
+	contentSpan.style.display = 'block';
+	logout.style.display = 'none';
+	contentH4.style.display = 'none';
 	title.innerHTML = 'REGULAMENTO';
 	modal.style.display = 'block';
 	modal.style.opacity = '0';
@@ -72,6 +97,9 @@ regulamento.addEventListener('click',()=>{
 });
 
 premio.addEventListener('click',()=>{
+	contentSpan.style.display = 'block';
+	contentH4.style.display = 'none';
+	logout.style.display = 'none';
 	title.innerHTML = 'PRÉMIOS E VENCEDORES';
 	modal.style.display = 'block';
 	modal.style.opacity = '0';
@@ -81,6 +109,9 @@ premio.addEventListener('click',()=>{
 });
 
 comoJogar.addEventListener('click',()=>{
+	contentSpan.style.display = 'block';
+	contentH4.style.display = 'none';
+	logout.style.display = 'none';
 	title.innerHTML = 'COMO JOGAR';
 	modal.style.display = 'block';
 	modal.style.opacity = '0';
@@ -90,12 +121,28 @@ comoJogar.addEventListener('click',()=>{
 });
 
 regras.addEventListener('click',()=>{
+	contentSpan.style.display = 'block';
+	contentH4.style.display = 'none';
 	title.innerHTML = 'REGRAS DO JOGO';
+	logout.style.display = 'none';
 	modal.style.display = 'block';
 	modal.style.opacity = '0';
 	setTimeout(()=>{
 		modal.style.opacity = '1';
 	},200);
+});
+profile.addEventListener('click',()=>{
+	contentH4.innerHTML = `Número da conta: ${localStorage.getItem('login')}`;
+	contentH4.style.display = 'block';
+	contentSpan.style.display = 'none';
+	logout.style.display = 'block';
+	title.innerHTML = 'PERFIL';
+	modal.style.display = 'block';
+	modal.style.opacity = '0';
+	setTimeout(()=>{
+		modal.style.opacity = '1';
+	},200);
+	logout.addEventListener('click', terminarSessao);
 });
 home.addEventListener('click',()=>{
 	window.location = 'index.html';
