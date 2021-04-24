@@ -280,3 +280,288 @@ nav ul li a .fas.fa-angle-right{
 	font-weight: bold;
 	display: none;
 }
+
+/*TABLET*/
+	@media(min-width: 768px) and (max-width: 1023px){
+		.acumulado label, .pontos label, .saldo label {
+		    font-size: 0.6rem;
+		    text-transform: lowercase;
+		}
+		.acumulado i, .pontos i, .saldo i {
+		    font-size: 0.6rem;
+		}
+		.personal-data {
+		    margin: 0 0px 10px 0px;
+		    border-radius: 5px;
+		    padding: 5px 10px;
+		    text-align: center;
+		}
+		#resgate{
+		    padding:8px 30px;
+		    font-size: 0.7rem;
+		    margin-bottom: 5px;
+		}
+		nav ul li {
+		    padding: 5px 15px;
+		}
+		nav ul li a {
+		    font-size: 0.575rem;
+		    font-weight: bold;
+		}
+		nav ul li a span {
+		    font-size: 0.475rem;
+		}
+		nav ul li a .fas.fa-angle-right{
+			font-size: 1rem;
+		}
+
+		.modal{
+		    width: 350px;
+		    height: 350px;
+		    padding: 15px 15px;
+		}
+		.content {
+		    padding-top: 0px;
+		    height: 200px;
+		}
+		.modal h1 {
+			font-size: 1rem;
+		    padding-bottom: 15px;
+		}
+		#closeOption {
+		    width: 65%;
+		    font-size: 1rem;
+		}
+		#logout {
+		    width: 65%;
+		    font-size: 0.9rem;
+		    margin-bottom: 5px;
+		}
+	}
+/*END OF TABLET*/
+
+/*MOBILE VERSION - 425px*/
+
+@media(min-width: 425px) and (max-width: 767px){
+		.good-luck{
+			width: 60%;
+		}
+		.good-luck img{
+			width: 100%;
+		}
+		.X {
+	    width: 17px;
+	    margin-left: 5px;
+	}
+	.getting-ready-span span i{
+		font-size: 0.6rem;
+	}
+	.entra-no-gigaUnitel h2 {
+	    font-size: 0.9rem;
+	}
+	.entra-no-gigaUnitel span i{
+		font-size: 0.9rem;
+	}
+	#login{
+    margin: 10px auto 0 auto;
+    width: 100%;
+    text-align: center;
+    padding:8px 0px;
+    font-size: 0.8rem;
+}
+	.welcome {
+	    width: 80%;
+	    padding: 25px 15px;
+	    margin: 25px auto 20px auto;
+	}
+.welcome-left span i{
+	font-size: 0.7rem;
+}
+	.acumulado label, .pontos label, .saldo label {
+		    font-size: 0.6rem;
+		    text-transform: lowercase;
+		}
+		.acumulado i, .pontos i, .saldo i {
+		    font-size: 0.6rem;
+		}
+		.personal-data {
+		    margin: 0 0px 10px 0px;
+		    border-radius: 5px;
+		    padding: 5px 10px;
+		    text-align: center;
+		}
+		header i{
+			z-index: 200;
+		}
+		.menu{
+			width: 45vw;
+		}
+		#resgate{
+		    padding:8px 30px;
+		    font-size: 0.7rem;
+		    margin-bottom: 5px;
+		}
+		nav ul li {
+		    padding: 5px 2px;
+		}
+		nav ul li a {
+		    font-size: 0.53rem;
+		    font-weight: bold;
+		}
+
+		nav ul li a span {
+		    font-size: 0.4rem;
+		    text-transform: lowercase;
+		}
+		nav ul li a .fas.fa-angle-right{
+			font-size: 1rem;
+		}
+		#startNewGame i{
+			font-size: 0.8rem;
+		}
+		.modal{
+			left: 50%;
+		    width: 200px;
+		    height: 250px;
+		    padding: 15px 15px;
+		}
+		.content {
+		    padding-top: 0px;
+		    height: 100px;
+		}
+		.modal h1 {
+			font-size: 0.8rem;
+		    padding-bottom: 15px;
+		}
+		.content h4 {
+	    font-size: 1rem;
+	}
+		#closeOption {
+		    width: 70%;
+		    font-size: 0.7rem;
+		}
+		#logout {
+		    width: 65%;
+		    font-size: 0.6rem;
+		    margin-bottom: 5px;
+		    text-transform: lowercase;
+		}
+		.fotoLogin {
+		    width: 70px;
+		    height: 70px;
+		    border: 4px solid #fff;
+		}
+	}
+
+/*END MOBILE VERSION - 425px*/
+
+@media(max-width: 424px){
+		.good-luck{
+			width: 60%;
+		}
+		.good-luck img{
+			width: 100%;
+		}
+		.X {
+	    width: 17px;
+	    margin-left: 5px;
+	}
+	.getting-ready-span span i{
+		font-size: 0.6rem;
+	}
+	.entra-no-gigaUnitel h2 {
+	    font-size: 0.9rem;
+	}
+	.entra-no-gigaUnitel span i{
+		font-size: 0.9rem;
+	}
+	#login{
+    margin: 10px auto 0 auto;
+    width: 100%;
+    text-align: center;
+    padding:8px 0px;
+    font-size: 0.8rem;
+}
+	.welcome {
+	    width: 80%;
+	    padding: 25px 15px;
+	    margin: 25px auto 20px auto;
+	}
+.welcome-left span i{
+	font-size: 0.7rem;
+}
+	.acumulado label, .pontos label, .saldo label {
+		    font-size: 0.6rem;
+		    text-transform: lowercase;
+		}
+		.acumulado i, .pontos i, .saldo i {
+		    font-size: 0.6rem;
+		}
+		.personal-data {
+		    margin: 0 0px 10px 0px;
+		    border-radius: 5px;
+		    padding: 5px 10px;
+		    text-align: center;
+		}
+		header i{
+			z-index: 200;
+		}
+		.menu{
+			width: 45vw;
+		}
+		#resgate{
+		    padding:8px 30px;
+		    font-size: 0.7rem;
+		    margin-bottom: 5px;
+		}
+		nav ul li {
+		    padding: 5px 2px;
+		}
+		nav ul li a {
+		    font-size: 0.53rem;
+		    font-weight: bold;
+		}
+
+		nav ul li a span {
+		    font-size: 0.4rem;
+		    text-transform: lowercase;
+		}
+		nav ul li a .fas.fa-angle-right{
+			font-size: 1rem;
+		}
+		#startNewGame i{
+			font-size: 0.7rem;
+		}
+		.modal{
+			left: 50%;
+		    width: 200px;
+		    height: 250px;
+		    padding: 15px 15px;
+		}
+		.content {
+		    padding-top: 0px;
+		    height: 100px;
+		}
+		.modal h1 {
+			font-size: 0.8rem;
+		    padding-bottom: 15px;
+		}
+		.content h4 {
+	    font-size: 1rem;
+	}
+		#closeOption {
+		    width: 70%;
+		    font-size: 0.7rem;
+		}
+		#logout {
+		    width: 65%;
+		    font-size: 0.6rem;
+		    margin-bottom: 5px;
+		    text-transform: lowercase;
+		}
+		.fotoLogin {
+		    width: 70px;
+		    height: 70px;
+		    border: 4px solid #fff;
+		}
+	}

@@ -62,3 +62,40 @@ body{
 	background-color: #50429e;
 	padding:12px 70px;
 }
+@media(min-width: 425px) and (max-width: 767px){
+	.presentation-image{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #196fab;
+	margin: 10px 0 10px 0;
+	padding:20px 150px 15px 130px;
+	border-radius: 25px;
+	display: none;
+}
+.button {
+    padding: 12px 20px;
+    font-weight: bold;
+   font-size: 0.8rem;
+}
+}
+@media(max-width: 424px){
+	.presentation-image{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #196fab;
+	margin: 10px 0 10px 0;
+	padding:20px 150px 15px 130px;
+	border-radius: 25px;
+	display: none;
+}
+.button {
+    padding: 12px 20px;
+    font-weight: bold;
+   font-size: 0.8rem;
+}
+	.button {
+	    font-size: 0.7rem;
+}
+}

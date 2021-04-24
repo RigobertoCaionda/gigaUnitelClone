@@ -16,6 +16,7 @@ if(localStorage.getItem('login') !== null){
 		saldo.innerHTML = `${balance} MB`;
 	}
 }
+let rescueData = document.querySelector('.rescue-data');
 let links = document.querySelectorAll('nav ul li a');
 links.forEach((item)=>{
 	item.addEventListener('click',(e)=>{
@@ -26,7 +27,7 @@ let goodLuckImg = document.querySelector('.good-luck img');
 let imageArray = ['assets/images/good_luck.gif','assets/images/good_luck_negro.gif'];
 let randomPosition = Math.round(Math.random() * (imageArray.length -1));
 goodLuckImg.src = imageArray[randomPosition];
-let closeMenu = document.querySelector('.X');
+let closeMenu = document.querySelectorAll('.X');
 let menu = document.querySelector('.menu');
 let closeMod = document.querySelector('#closeOption');
 let menuIcon = document.querySelector('.fas.fa-bars');
@@ -46,11 +47,15 @@ let saldoI = document.querySelector('.saldo i');
 let acumuladoI = document.querySelector('.acumulado i');
 let contentH4 = document.querySelector('.content h4');
 let pontosI = document.querySelector('.pontos i');
+let resgate = document.querySelector('#resgate');
 function openMenu(){
 	if(menu.classList.contains('show')){
 		menu.classList.remove('show');
 	}else{
 		menu.classList.add('show');
+		closeMenu.forEach((item)=>{
+			item.style.display = 'none';
+		});
 	}
 }
 function close(){
@@ -82,7 +87,9 @@ function terminarSessao(){
 	}
 }
 menuIcon.addEventListener('click', openMenu);
-closeMenu.addEventListener('click',close);
+closeMenu.forEach((item)=>{
+	item.addEventListener('click',close);
+});
 closeMod.addEventListener('click', closeModal);
 regulamento.addEventListener('click',()=>{
 	contentSpan.style.display = 'block';
@@ -155,6 +162,12 @@ newGame.addEventListener('click',()=>{
 });
 login.addEventListener('click',()=>{
 	window.location = 'login.html';
+});
+rescueData.addEventListener('click',()=>{
+	alert('O resgate encontra-se indisponível no momento!');
+});
+resgate.addEventListener('click',()=>{
+	alert('O resgate encontra-se indisponível no momento!');
 });
 if(localStorage.getItem('saldo') !== null){
 	saldoI.innerHTML = `${localStorage.getItem('saldo')} MB`;

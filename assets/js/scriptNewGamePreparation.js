@@ -523,6 +523,11 @@ fifityFifity.addEventListener('click',()=>{
 	}
 	verificaNumeroAjudas();
 });
+X.addEventListener('click',()=>{
+	container4.style.display = 'block';
+	container6.style.display = 'none';
+	X.style.display = 'none';
+});
 choose2.addEventListener('click',()=>{
 	clicouNoChoose2 = true;
 	choose2.setAttribute('choose2', 'true');
