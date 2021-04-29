@@ -171,7 +171,7 @@ nav ul li a .fas.fa-angle-right{
 	font-size: 1.4rem;
 }
 .show{
-	left: 0;
+	left: 0!important;
 }
 .modal{
 	display: none;
@@ -395,6 +395,7 @@ nav ul li a .fas.fa-angle-right{
 		}
 		.menu{
 			width: 45vw;
+			left: -45vw;
 		}
 		#resgate{
 		    padding:8px 30px;
@@ -508,6 +509,7 @@ nav ul li a .fas.fa-angle-right{
 		}
 		.menu{
 			width: 45vw;
+			left: -45vw;
 		}
 		#resgate{
 		    padding:8px 30px;
